@@ -1,0 +1,15 @@
+.heading{
+    text-align: center;
+    background-color: antiquewhite;
+}
+.shows{
+    /* margin-left: 20%;
+     */
+     text-align: center;
+}
+.subshow{
+    background-color: darkseagreen;
+    padding: 0.5em 3em 0.5em 3em;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+}

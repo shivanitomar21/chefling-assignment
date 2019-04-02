@@ -1,0 +1,31 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    margin-left: 12%;
+    /* width: 90%; */
+  }
+  .abc{
+    width: 55em;
+    margin-top: 5%;
+  }
+  th{
+    background-color: rgb(213, 218, 218);
+  }
+  td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+  }
+  td, th{
+    width:8em;
+  }
+  tr {
+    height: 4em;
+    background-color: rgb(236, 250, 250);
+  }
+  .remove{
+    padding: 0.8em 2em 0.8em 2em;
+    margin-left: 0.8em;
+    text-align: center;
+    background-color: rgb(233, 116, 48);
+  }

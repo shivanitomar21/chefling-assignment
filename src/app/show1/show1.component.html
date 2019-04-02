@@ -1,0 +1,29 @@
+<table class="abc">
+<tr>
+    <th>Name</th>
+    <th>Rotation period</th>
+    <th>Orbital period</th>
+    <th>Diameter</th>
+    <th>population</th>
+    <th>Terrain</th>
+    <th>Action</th>
+    <!-- <th>Country</th> -->
+  </tr>
+  </table>
+<table>
+<div *ngIf="planets">
+  <div *ngFor="let planet of planets.results; let i = index">
+    <tr>
+    <td>{{planet.name}}</td>
+    <td>{{planet.rotation_period}}</td>
+    <td>{{planet.orbital_period}}</td>
+    <td>{{planet.diameter}}</td>
+    <td>{{planet.population}}</td>
+    <td>{{planet.terrain}}</td>
+    <td><button  class="add" (click)="addtoStorage(planet, i)"><b>ADD</b></button></td>
+    </tr>
+  </div>
+</div>
+
+</table>
+<!-- <button (click)="location.back()">Go Back</button> -->
