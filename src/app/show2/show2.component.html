@@ -1,28 +1,18 @@
-<!-- Search <input placeholder="Type to filter"/> -->
-<table>
-    <tr>
-        <th>Movie name</th>
-        <th>Director</th>
-        <th>Producer</th>
-        <th>Release Date</th>
-        <th>Episode Id</th>
-        <th>Action</th>
-      </tr>
-</table>
-<table>
+<form [formGroup]="signUpForm" class="outer" style="border:1px solid #ccc">
+  <div class="container">
+    <h1>Sign Up</h1>
+    <hr>
+    <label for="email"><b>Name</b></label>
+    <input type="text" formControlName="name" placeholder="Enter Name" name="name" required>
 
-    <div *ngIf="movies">
-      <div *ngFor="let movie of movies.results">
-        <tr>
-        <td >{{movie.title}}</td>
-        <td >{{movie.director}}</td>
-        <td >{{movie.producer}}</td>
-        <td >{{movie.release_date}}</td>
-        <td >{{movie.episode_id}}</td>
-        <td><button class="add" (click)="addtoStorage(movie)"><b>ADD</b></button></td>
-        </tr>
-      </div>
+    <label for="email"><b>Email</b></label>
+    <input type="text" formControlName="email" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" formControlName="password" placeholder="Enter Password" name="psw" required>
+
+    <div class="clearfix">
+      <button (click)="signUpUser(signUpForm.value)" type="submit" class="signupbtn">Sign Up</button>
     </div>
-</table>
-
-<!-- <button (click)="location.back()">Go Back</button> -->
+  </div>
+</form>

@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Show2RoutingModule } from './show2.routers';
 import { Show2 } from './show2.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    Show2RoutingModule
+    Show2RoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [Show2]
 })

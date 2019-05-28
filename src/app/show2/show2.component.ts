@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { Http, Response } from '@angular/http';
+import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import 'rxjs/add/operator/map'
 import { Pipe, PipeTransform } from '@angular/core';
+import { FormControl, FormArray, Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 @Pipe({
   name: 'filter'
@@ -12,35 +13,33 @@ import { Pipe, PipeTransform } from '@angular/core';
   templateUrl: './show2.component.html',
   styleUrls: ['./show2.component.css']
 })
-export class Show2 implements OnInit, PipeTransform {
+export class Show2 implements OnInit {
 
-  transform(items: any[], field: string, value: string): any[] {
-    if (!items) {
-        return [];
-    }
-    if (!field || !value) {
-        return items;
-    }
-
-    return items.filter(singleItem =>
-        singleItem[field].toLowerCase().includes(value.toLowerCase())
-    );
-}
-
-  searchToken: string;
-  movies: any[];
-  constructor(private location: Location,private http: Http) { }
+  signUpForm: FormGroup;
+  
+  constructor(private location: Location, private http: Http, private fb: FormBuilder) { 
+    this.signUpForm = fb.group({
+      name: new FormControl(null, Validators.required),
+      email: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required)
+    });
+  }
 
   ngOnInit() {
 
-    this.http.get("https://swapi.co/api/films").subscribe(response => {
-      this.movies = response.json();
-      console.log(this.movies);
-      // console.log(JSON.stringify(this.movies));
-      },
+  }
+
+  signUpUser(value: any) {
+
+    let headers = new Headers({ 'Content-Type': 'application/json; charset=utf-8', 'dataType': 'json', });
+    let options = new RequestOptions({ headers: headers });
+    console.log(value);
+    let register = JSON.stringify(value);
+    this.http.post('/api/user/signup', register, options).subscribe((result: any) => {
+    },
       (error: any) => {
-        this.movies = [];
-        console.log("Failed to get movies. Server Error.");
+        console.log("Failed to register User Information. Server Error.");
       });
   }
+
 }
